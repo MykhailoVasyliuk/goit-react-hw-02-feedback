@@ -8,10 +8,11 @@ export const FeedbackOptionsContainer = styled.div`
     border: 0;
     border-radius: 5px;
     padding: 10px;
+    text-transform: capitalize;
     transition: color 0.3s ease, background 0.3s ease;
     &:hover,
     &:focus,
-    &:active {
+    :active {
       color: white;
       background-color: #4287f5;
     }
