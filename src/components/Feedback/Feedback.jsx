@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { state } from 'components/App';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
@@ -7,7 +6,11 @@ import { Notification } from './Notification/Notification';
 import { FeedbackContainer } from './Feedback.styled';
 
 export class Feedback extends Component {
-  state = state;
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
   handleFeedback = type => {
     this.setState(prevState => {
@@ -30,7 +33,7 @@ export class Feedback extends Component {
       <FeedbackContainer>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>
